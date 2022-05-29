@@ -1,0 +1,46 @@
+<header class="section-header" th:fragment="header">
+    <nav class="navbar navbar-top navbar-expand-lg navbar-dark bg-secondary">
+    </nav>
+    <section class="header-main shadow">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-sm-4">
+                    <div class="brand-wrap">
+                        <a href="/"> <img class="logo" th:src="@{/images/logo-dark.png}"></a>
+                        <a href="/"><h2 class="logo-text">Sharify</h2></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-8">
+                    <form th:action="@{/category/all}" method="post" class="search-wrap">
+                        <div class="input-group w-100">
+                            <input class="form-control" name="search" placeholder="Mēklēt" style="width:40%;" type="text">
+                            <div class="input-group-append">
+                                <button style="width:57px" class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6-24 col-sm-7 col-8  order-2  order-lg-3">
+                    <div class="d-flex justify-content-end">
+                        <div class="widget-header">
+                            <small class="title text-muted">Mans Sharify</small>
+                            <div th:if="${#authorization.expression('isAuthenticated()')}" th:text="'Hello, ' + ${#authentication.getName()}">
+                                <a href="/logout">Iziet</a>
+                            </div>
+                            <div th:if="${#authorization.expression('isAuthenticated()')}">
+                                <a href="/logout">Iziet</a>
+                            </div>
+                            <div th:unless="${#authorization.expression('isAuthenticated()')}">
+                                <a href="/login">Ieiet</a>
+                                <span class="dark-transp"> | </span>
+                                <a href="/register"> Reģistrēties</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

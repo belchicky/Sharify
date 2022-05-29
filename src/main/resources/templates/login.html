@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta content="no-cache" http-equiv="pragma"/>
+    <meta content="max-age=604800" http-equiv="cache-control"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="Bootstrap-ecommerce by Vosidiy" name="author">
+    <title>Sharify</title>
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+    <!-- jQuery -->
+    <script th:src="@{/js/jquery-2.0.0.min.js}" type="text/javascript"></script>
+    <!-- Bootstrap4 files-->
+    <script th:src="@{/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-custom.css}" type="text/css"/>
+    <!-- Font awesome 5 -->
+    <link rel="stylesheet" th:href="@{/fonts/fontawesome/css/fontawesome-all.min.css}" type="text/css">
+    <!-- custom style -->
+    <link rel="stylesheet" th:href="@{/css/uikit.css}" type="text/css"/>
+    <link media="only screen and (max-width: 1200px)" rel="stylesheet" th:href="@{/css/responsive.css}"/>
+    <!-- custom javascript -->
+    <script th:src="@{/js/script.js}" type="text/javascript"></script>
+</head>
+<body>
+<div class="wrapper bg2">
+<!-- ========================= HEADER ========================= -->
+<header th:insert="fragments/header :: header"></header>
+<!-- ========================= HEADER END ========================= -->
+
+
+<!-- ========================= SECTION PAGETOP ========================= -->
+<section th:insert="fragments/hero :: hero"></section>
+<!-- ========================= SECTION INTRO END// ========================= -->
+
+
+<!-- ========================= SECTION FEATURES ========================= -->
+<section class="section-features bg2 padding-y-lg" id="features">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div id="id01">
+                <div class="card">
+                    <article class="card-body card-body-w350">
+                        <h4 class="card-title mb-4 mt-1">Pieslēgties Mans Sharify</h4>
+                        <form method="post" action="/login">
+                            <div class="form-group">
+                                <label>Jūsu e-pasts</label>
+                                <input class="form-control" name="username" placeholder="Email" type="email">
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <label>Parole</label>
+                                <input class="form-control" name="password" placeholder="******" type="password">
+                            </div> <!-- form-group// -->
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" type="submit"> Pieslēgties</button>
+                            </div> <!-- form-group// -->
+                        </form>
+                        <div style="color: red; text-align: center;" th:if="${param.error}">
+                            Nepareizs lietotājs vai parole.
+                        </div>
+                        <div style="color: red; text-align: center;" th:if="${param.logout}">
+                            Jus izgajat no konta.
+                        </div>
+                    </article>
+                </div> <!-- card.// -->
+            </div>  <!-- code-wrap.// -->
+        </div>
+    </div>  <!-- code-wrap.// -->
+</section>
+<!-- ========================= SECTION FEATURES END// ========================= -->
+
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery-2.0.0.min.js}" type="text/javascript"></script>
+<!-- Bootstrap -->
+<script th:src="@{/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+<!-- custom javascript -->
+<script th:src="@{/js/script.js}" type="text/javascript"></script>
+<div class="push"></div>
+</div>
+</div>
+
+
+<!-- ========================= FOOTER ========================= -->
+<footer th:insert="fragments/footer :: footer"></footer>
+<!-- ========================= FOOTER END // ========================= -->
+</body>
+</html>
